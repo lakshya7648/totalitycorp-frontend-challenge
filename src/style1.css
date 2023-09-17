@@ -1,0 +1,7 @@
+#catContain::-webkit-scrollbar{
+    height:5px;
+}
+#catContain::-webkit-scrollbar-thumb{
+    background: gray;
+    border-radius:8px;
+}
