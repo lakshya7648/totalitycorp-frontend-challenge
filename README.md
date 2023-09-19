@@ -14,5 +14,5 @@ developer purpose i have provided the way to connect it to backend. All the comm
 For Scalability purpose and maintainence purpose, all the required comments have been provided and redux is used considering the scalability.
 
 Login and signup component is also added in the site but the data is being stored in localstorage since dummyapi doesn't provide option to store data on server. But comments are added to 
-connect it with the backend when needed. For now, during the signup the data will be stored into the database therefore please ensure to signup before login. 
+connect it with the backend when needed. For now, during the signup the data will be stored into the localStorage therefore please ensure to signup before login. 
 Login process will verify the user from localstorage upto it is not connected to backend.
