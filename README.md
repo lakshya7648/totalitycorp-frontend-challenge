@@ -1,8 +1,13 @@
-# React + Vite
+# Tech Stack Used
+---------Front end---------
+1. React - vite
+2. Redux and Reduxjs@toolkit
+3. Tailwind UI + flowbite
+-------- Backend ----------
+1. DummyJSON Api for backend to fetch products Link : (https://dummyjson.com/docs/products)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I have used react-redux at frontend to handle the state of the whole application. This assignment contains all the functionalities asked in the assignment
+along with user authentication as an addon. Although user authentication is not done with the backend since the api doesnt provide this functionality but for
+developer purpose i have provided the way to connect it to backend. All the comments related to this is written in the code.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For Scalability purpose and maintainence purpose, all the required comments have been provided and redux is used considering the scalability.
