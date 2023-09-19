@@ -26,7 +26,7 @@ const ProductImageView = ({ images, thumbnail }) => {
                     {show ? images.map((image) => {
                         return (
                             <div key={image} className="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src={image} className="w-auto h-auto absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                                <img src={image} crossOrigin='' className="w-auto h-auto absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                             </div>
                         );
                     }) : <Spinner />}

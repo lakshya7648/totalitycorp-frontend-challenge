@@ -58,7 +58,7 @@ const Checkout = () => {
                                 {checkoutData.items.map((element) => {
                                     return (<tr key={element.product.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                         <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            <img src={element.product.thumbnail} alt={element.product.title} className="w-8 h-8 md:w-12 md:h-12 rounded-full border" />
+                                            <img src={element.product.thumbnail} crossOrigin="" alt={element.product.title} className="w-8 h-8 md:w-12 md:h-12 rounded-full border" />
                                         </td>
                                         <th className="px-6 py-4">
                                             {element.product.title}
