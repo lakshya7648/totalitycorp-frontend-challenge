@@ -9,12 +9,12 @@ import { setCategory } from "../state/CategoriesSlicer/CategoriesSlicer";
 function Categories() {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
-    const category = useSelector(state=>state.categories.category);
+    const category = useSelector(state => state.categories.category);
 
-    const moveNext = ()=>{
+    const moveNext = () => {
         document.getElementById("catContain").scrollLeft += 100;
     }
-    const movePrev = ()=>{
+    const movePrev = () => {
         document.getElementById("catContain").scrollLeft -= 100;
     }
     const fetchCategories = async () => {
@@ -25,10 +25,10 @@ function Categories() {
         const url = "https://dummyjson.com/products/categories"
         const response = await fetch(url);
         const result = await response.json();
-        
+
         setLoading(false);
         dispatch(setCategory(result));
-        
+
     }
     //Fetch the Category while the website loads to make the user select his category easily.
     useEffect(() => {
@@ -37,23 +37,25 @@ function Categories() {
 
     return (
         <>
-                {/* Data being fetched from a dummy api may create scroll bar however this behaviour may be controlled while working with our own api */}
-                <div className="relative overflow-x-auto bg-white flex" id="catContain">
-                    {loading && <Spinner/>}
-                    <button className="self-start py-3 bg-white border border-black px-2 shadow sticky left-0" onClick={movePrev}>&larr;</button>
-                    <table className="w-auto text-sm scroll-smooth text-left mx-10 text-gray-500 dark:text-gray-400">
-                        <thead className="text-xs text-gray-900 uppercase  dark:text-gray-400">
-                            <tr>
-                                {category.map((element) => {
-                                    return <th key={element} scope="col" className="px-6 py-2">
-                                        <Link to={`/products/category/${element}`}>{element}</Link>
-                                    </th>
-                                })}
-                            </tr>
-                        </thead>
-                    </table>
-                    <button className="self-end py-3 bg-white border border-black px-2 shadow-md sticky right-0" onClick={moveNext}>&rarr;</button>
+            {/* Data being fetched from a dummy api may create scroll bar however this behaviour may be controlled while working with our own api */}
+            <div className="relative overflow-x-auto bg-white flex" id="catContain">
+                <button className="self-start py-3 bg-white border border-black px-2 shadow sticky left-0" onClick={movePrev}>&larr;</button>
+                <div className="mx-auto">
+                    {loading && <Spinner />}
                 </div>
+                <table className="w-auto text-sm scroll-smooth text-left mx-10 text-gray-500 dark:text-gray-400">
+                    <thead className="text-xs text-gray-900 dark:text-gray-400">
+                        <tr>
+                            {category.map((element) => {
+                                return <th key={element} scope="col" className="px-6 py-1 text-sm hover:text-blue-600">
+                                    <Link to={`/products/category/${element}`}>{capitalize(element)}</Link>
+                                </th>
+                            })}
+                        </tr>
+                    </thead>
+                </table>
+                <button className="self-end py-3 bg-white border border-black px-2 shadow-md sticky right-0" onClick={moveNext}>&rarr;</button>
+            </div>
 
         </>
     )

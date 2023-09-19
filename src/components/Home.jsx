@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import ShowProducts from "./ShowProducts";
+import Spinner from "./Spinner";
 
 function Home() {
   const category = useSelector(state=>state.categories.category);

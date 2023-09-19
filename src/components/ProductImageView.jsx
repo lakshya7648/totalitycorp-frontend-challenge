@@ -4,7 +4,7 @@ import Spinner from './Spinner';
 
 const ProductImageView = ({ images, thumbnail }) => {
     const [show, setShow] = useState(false);
-    console.log(document.querySelectorAll("[data-carousel-item]"))
+    // console.log(document.querySelectorAll("[data-carousel-item]"))
     useEffect(() => {
         if (images) {
             setShow(true);

@@ -29,8 +29,9 @@ const ShowProducts = ({ category, limit }) => {
           <h1 className="text-3xl text-center w-40 md:text-3xl md:w-auto font-bold mb-5 md:mb-10 items-center">{capitalize(category)}</h1>
           <Link to={`products/category/${category}`} className="bg-blue-700 text-white font-semibold px-3 py-2 rounded-md shadow hover:bg-blue-800 active:bg-blue-600 hover:scale-110 hover:transition-transform">View All</Link>
         </div>
-        
-        {loading && <Spinner/>}
+        <div className="mx-auto my-auto">
+          {loading && <Spinner/>}
+        </div>
         {products.length && products.map((product) => {
           return (
 

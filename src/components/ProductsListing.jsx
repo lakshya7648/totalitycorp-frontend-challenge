@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useLocation, useParams, useSearchParams } from "react-router-dom"
 import Filters from "./Filters";
 import ProductCard from "./ProductCard";
 import Spinner from "./Spinner";
@@ -7,8 +7,10 @@ import Spinner from "./Spinner";
 const ProductsListing = () => {
     // Getting category from url as a parameter and will fetch all the content related to the asked category
     const { category } = useParams();
-
+    const [searchParams, setSearchParams] = useSearchParams();
+    
     const [loading, setLoading] = useState(true);
+    const location = useLocation();
     
     // state to handle the products
     const [products, setProducts] = useState([]);
@@ -20,21 +22,29 @@ const ProductsListing = () => {
     let total = 0;
     const limit = 10;
     // URL for fetching the products with limit furthur can be replaced with our own api
-    const url = `https://dummyjson.com/products/category/${category}?limit=${limit}`;
-
+    let url = '';
+   
+    
     const fetchProductsOfCategory = async () => {
+        
         const response = await fetch(url);
         const result = await response.json();
         total = result.total;
         setProducts(result.products);
+        
         setFilteredProducts(result.products); 
         setLoading(false);
     }
-    // console.log("filteredprod = ", filteredProducts);
+    
 
     useEffect(() => {
+        if(category) {
+            url = `https://dummyjson.com/products/category/${category}?limit=${limit}`;
+        } else{
+            url =  `https://dummyjson.com/products/search?q=${searchParams.get("q")}`;
+        }
         fetchProductsOfCategory();
-    }, [category])
+    }, [category, searchParams])
 
     // We are getting a discount percentage as well i will use that lateron if got time
 

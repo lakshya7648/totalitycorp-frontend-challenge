@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { capitalize } from "../utils/index";
+import { initFlowbite } from "flowbite";
 
 const Filters = ({ products, setProducts, setFilteredProducts, productCateg }) => {
     
@@ -77,7 +78,7 @@ const Filters = ({ products, setProducts, setFilteredProducts, productCateg }) =
       let c = new Set();
       products.forEach((element)=>{c.add(element.brand)});
       setCatgs(Array.from(c));
-
+     initFlowbite();
 
       // setting all the filters to their original location while navigating between different categories
       document.getElementById("default-radio-2").checked=true;
@@ -94,7 +95,7 @@ const Filters = ({ products, setProducts, setFilteredProducts, productCateg }) =
                 </svg>
             </button>
 
-            <aside id="default-sidebar" className="fixed top-auto left-0 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+            <aside id="default-sidebar" className="fixed pb-20 top-auto overflow-scroll left-0 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
                 <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                 <label htmlFor="categories" className="block mb-5 text-sm font-medium text-gray-900 dark:text-white">Brand</label>
                     <select id="categories" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={handleBrandFilter}>
