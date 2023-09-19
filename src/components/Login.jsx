@@ -25,6 +25,7 @@ const Login = () => {
   }
 
   useEffect(() => {
+    document.title="Login to eShop";
     if(localStorage.getItem("authToken")){
       nav("/");
     }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { addUser } from '../utils/index';
 import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const SignUp = () => {
   const nav = useNavigate();
@@ -19,6 +20,10 @@ const SignUp = () => {
     nav("/login");
   }
 
+  useEffect(() => {
+    document.title="Create your free account";
+  }, [])
+  
   return (
     <div className="w-full max-w-sm p-4 mx-auto my-10 bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <div className="space-y-6">

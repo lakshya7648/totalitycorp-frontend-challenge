@@ -40,10 +40,13 @@ const ProductsListing = () => {
     useEffect(() => {
         if(category) {
             url = `https://dummyjson.com/products/category/${category}?limit=${limit}`;
+            document.title = `${category} - Products`;
         } else{
             url =  `https://dummyjson.com/products/search?q=${searchParams.get("q")}`;
+            document.title = `Results - ${searchParams.get("q")}`;
         }
         fetchProductsOfCategory();
+        
     }, [category, searchParams])
 
     // We are getting a discount percentage as well i will use that lateron if got time

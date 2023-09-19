@@ -26,6 +26,7 @@ const ProductView = ({ setToasts }) => {
     const result = await response.json();
     setProduct(result);
     setLoading(false);
+    document.title = `${result.title}`;
   }
   // console.log(product.images);
 

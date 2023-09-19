@@ -19,6 +19,7 @@ const Checkout = () => {
     }
 
     useEffect(() => {
+        document.title="Final Checkout";
         if (!localStorage.getItem("authToken")) {
             nav("/login");
         }
@@ -139,7 +140,7 @@ const Checkout = () => {
             </div>}
             {orderBooked && 
         <div className="w-4/5 mx-auto p-10 bg-white">
-          <img src="./src/assets/images/6110040.webp" alt="empty cart" className="w-1/4 mx-auto my-2" />
+          <img src="/images/6110040.webp" alt="empty cart" className="w-1/4 mx-auto my-2" />
           <h1 className="text-center text-2xl md:text-4xl font-semibold mb-1">Order Placed Successfully</h1>
           <p className="font-light text-xl md:text-2xl text-center mb-3">Shortly, item will be delivered to the address provided</p>
         </div>}

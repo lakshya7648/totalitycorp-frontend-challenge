@@ -56,6 +56,11 @@ const Carts = ({ setToasts }) => {
     }
   }
 
+  useEffect(() => {
+    document.title = 'Carts - eShop : Platform to buy your favorites';
+  }, [])
+  
+  
   return (
     <>
       {cart.totalItems !== 0 && <div className="w-full p-2 bg-gray-300 flex  space-x-2 justify-between flex-wrap">
@@ -105,7 +110,7 @@ const Carts = ({ setToasts }) => {
       }
       {cart.items.length === 0 && <div className="bg-gray-300 w-full h-[500px] p-2 shadow-md border">
         <div className="w-4/5 mx-auto p-10 bg-white">
-          <img src="./src/assets/images/emptyCart.png" alt="empty cart" className="w-1/4 mx-auto my-2" />
+          <img src="/images/emptyCart.png" alt="empty cart" className="w-1/4 mx-auto my-2" />
           <h1 className="text-center text-2xl md:text-4xl font-semibold mb-1">{authToken?"Cart is Empty":"Cart is missing?"}</h1>
           {!authToken && <p className="font-light text-xl md:text-2xl text-center mb-3">Looks Like the items you added are missing. Don't Worry do a login and again add</p>}
           {authToken && <p className="font-light text-xl md:text-2xl text-center mb-3">Sorry! Nothing is in your carts</p>}
